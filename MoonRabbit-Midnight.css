@@ -1,0 +1,151 @@
+/**
+ * @name midnight
+ * @description a dark, customizable discord theme.
+ * @author refact0r
+ * @version 2.0.1
+ * @invite nz87hXyvcy
+ * @website https://github.com/refact0r/midnight-discord
+ * @source https://github.com/refact0r/midnight-discord/blob/master/themes/midnight.theme.css
+ * @authorId 508863359777505290
+ * @authorLink https://www.refact0r.dev
+*/
+
+/* import theme modules */
+@import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
+
+body {
+    /* font, change to '' for default discord font */
+    --font: 'figtree';
+
+    /* sizes */
+    --gap: 7px; /* spacing between panels */
+    --divider-thickness: 4px; /* thickness of unread messages divider and highlighted message borders */
+
+    /* animation/transition options */
+    --animations: on; /* turn off to disable all midnight animations/transitions */
+    --list-item-transition: 0.2s ease; /* transition for list items */
+    --dms-icon-svg-transition: 0.4s ease; /* transition for the dms icon */
+
+    /* top bar options */
+    --move-top-bar-buttons: off; /* turn on to move inbox button to the server list (recommend setting top bar height to 24px) */
+    --custom-app-top-bar-height: 31px; /* height of the titlebar/top bar (default is 36px)*/
+
+    /* window controls */
+    --custom-window-controls: on; /* turn off to use discord default window controls */
+    --window-control-size: 14px; /* size of custom window controls */
+
+    /* dms button icon options */
+    --dms-icon: default; /* set to default to use discord icon, on to use custom icon, off to disable completely */
+    --dms-icon-svg-url: url('https://upload.wikimedia.org/wikipedia/commons/c/c4/Font_Awesome_5_solid_moon.svg'); /* icon svg url. MUST BE A SVG. */
+    --dms-icon-svg-size: 90%; /* size of the svg (css mask-size) */
+    --dms-icon-color-before: RGB(105, 6, 37); /* normal icon color */
+    --dms-icon-color-after: var(--white); /* icon color when button is hovered/selected */
+
+    /* dms button background options */
+    --dms-background: off; /* off to disable, image to use a background image, color to use a custom color/gradient */
+    --dms-background-image-url: url(''); /* url of the background image */
+    --dms-background-image-size: cover; /* size of the background image (css background-size) */
+    --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2)); /* fixed color/gradient (css background) */
+
+    /* background image options */
+    --background-image: on; /* turn on to use a background image */
+    --background-image-url: url('https://i.postimg.cc/RZJfs6SD/132885766-58a204cf-4941-4143-a3d2-7d9eec948c2c.png'); /* url of the background image */
+
+    /* transparency/blur options */
+    /* NOTE: TO USE TRANSPARENCY/BLUR, YOU MUST HAVE TRANSPARENT BG COLORS. FOR EXAMPLE: --bg-4: hsla(220, 15%, 10%, 0.7); */
+    --transparency-tweaks: on; /* turn on to remove some elements for better transparency */
+    --remove-bg-layer: off; /* turn on to remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
+    --panel-blur: off; /* turn on to blur the background of panels */
+    --blur-amount: 100px; /* amount of blur */
+    --bg-floating: var(--bg-3); /* you can set this to a more opaque color if floating panels look too transparent */
+
+    /* chatbar options */
+    --flipped-chatbar: on; /* turn on to move the typing indicator above the chatbar */
+    --chatbar-height: 47px; /* height of the chatbar (52px by default, 47px to align it with the user panel) */
+    --chatbar-padding: 8px; /* padding of the chatbar */
+
+    /* other options */
+    --small-user-panel: on; /* turn on to make the user panel smaller like in old discord */
+}
+
+/* color options */
+:root {
+    --colors: on;
+
+    /* text colors */
+    --text-0: #a6a6a3; /* slightly dimmed neutral for buttons on coloured backgrounds */
+    --text-1: hsl(339, 45%, 48%); /* dark dusty rose – for primary light text */
+    --text-2: hsl(339, 55%, 22%); /* heading text – muted deep pink */
+    --text-3: hsl(339, 40%, 30%); /* body text – readable, earthy tone */
+    --text-4: hsl(339, 35%, 22%); /* dimmed icons/buttons – nearly brown-pink */
+    --text-5: hsl(339, 30%, 38%); /* timestamps/muted – desaturated but clear */
+
+
+    /* background and dark colors */
+    --bg-1: hsla(340, 70%, 88%, 0.75); /* clicked buttons */
+    --bg-2: hsla(339, 65%, 78%, 0.80); /* hovered buttons */
+    --bg-3: hsla(339, 60%, 85%, 0.85); /* panels & UI containers */
+    --bg-4: hsla(339, 90%, 95%, 0.80); /* main chat background */
+
+
+
+    --hover: hsl(339, 40%, 75%);
+    --active: hsla(339, 60%, 41%, 0.18);
+    --active-2: hsl(339, 80%, 65%);
+    --message-hover: hsla(339, 51%, 70%, 0.07);
+
+    /* accent colors */
+    --accent-1: hsl(339, 70%, 45%);
+    --accent-2: hsl(339, 50%, 40%);
+    --accent-3: hsl(339, 50%, 55%);
+    --accent-4: hsl(339, 60%, 35%);
+    --accent-5: hsl(339, 45%, 40%);
+    --accent-new: hsl(339, 70%, 30%);
+    --mention: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 90%) 40%, transparent);
+    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 95%) 40%, transparent);
+    --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent);
+    --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent);
+
+    /* status indicator colors */
+    --online: #caffbf;
+    --dnd: #ffadad;
+    --idle: #fdffb6;
+    --streaming: #bdb2ff;
+    --offline: #d2d2cf;
+
+    /* border colors */
+    --border-light: hsl(339, 40%, 75%);
+    --border: hsla(339, 60%, 41%, 0.2);
+    --button-border: hsla(339, 50%, 35%, 0.2);
+
+    /* base colors */
+    --red-1: #ffadad;
+    --red-2: #fba3a3;
+    --red-3: #f48ca5;
+    --red-4: #e39ba7;
+    --red-5: #da4a60;
+
+    --green-1: #caffbf;
+    --green-2: #a8f0b3;
+    --green-3: #92e6a9;
+    --green-4: #7cdb9e;
+    --green-5: #65cf94;
+
+    --blue-1: #c0b4d5;
+    --blue-2: #a8a0cc;
+    --blue-3: #8f8ac3;
+    --blue-4: #7675ba;
+    --blue-5: #5c5fb1;
+
+    --yellow-1: #ffe6aa;
+    --yellow-2: #f9dda0;
+    --yellow-3: #f4d496;
+    --yellow-4: #eecb8c;
+    --yellow-5: #e8c282;
+
+    --purple-1: #f2d5f5;
+    --purple-2: #e9c6ef;
+    --purple-3: #dfb7e9;
+    --purple-4: #d5a8e3;
+    --purple-5: #cb99dd;
+}
